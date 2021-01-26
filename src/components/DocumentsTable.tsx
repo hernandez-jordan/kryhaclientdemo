@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import { Menu, Table, Label } from 'semantic-ui-react'
 import PaginationComponent from './Pagination'
 import ActivityButtons from './ActivityButtons'
 import axios from "axios";
 import Loader from './Loader'
 
-const DocumentsTable: React.FC = () => {
+const DocumentsTable: FC = () => {
   const [userDocuments, setUserDocuments] = useState<[]>([]);
   const [totalPages, setTotalPages] = useState<number>(1);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -44,7 +44,11 @@ const DocumentsTable: React.FC = () => {
   const DisplayDocumentsComponent = () => {
     if (isLoading) {
       return (
-        <Table.Row><Table.Cell><Loader loadingMessage={loadingMessage} /></Table.Cell></Table.Row>
+        <Table.Row>
+          <Table.Cell>
+            <Loader loadingMessage={loadingMessage} />
+          </Table.Cell>
+        </Table.Row>
       )
     }
     if (userDocuments.length > 0) {

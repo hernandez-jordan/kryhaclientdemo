@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { Pagination } from 'semantic-ui-react'
 
 interface IPagination {
@@ -7,7 +7,7 @@ interface IPagination {
   totalPages: number;
 }
 
-const PaginationComponent: React.FC<IPagination> = ({ defaultActivePage, onPageChangeHandler, totalPages }: IPagination) => {
+const PaginationComponent: FC<IPagination> = ({ defaultActivePage, onPageChangeHandler, totalPages }) => {
   return (
     <Pagination
       boundaryRange={2}

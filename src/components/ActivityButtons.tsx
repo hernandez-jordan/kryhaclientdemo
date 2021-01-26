@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import React, { FC, Dispatch, SetStateAction } from 'react';
 import { Button } from 'semantic-ui-react';
 import axios from 'axios';
 
@@ -8,7 +8,7 @@ interface IActivityButtons {
   setLoadingMessage: Dispatch<SetStateAction<string>>;
 }
 
-const ActivityButtons: React.FC<IActivityButtons> = ({ fetchDocuments, setIsLoading, setLoadingMessage }: IActivityButtons) => {
+const ActivityButtons: FC<IActivityButtons> = ({ fetchDocuments, setIsLoading, setLoadingMessage }) => {
   const sendPostRequest = async (uri: string, loadingMessage: string) => {
     try {
       setLoadingMessage(loadingMessage)
@@ -25,8 +25,7 @@ const ActivityButtons: React.FC<IActivityButtons> = ({ fetchDocuments, setIsLoad
   return (
     <div style={{ float: 'left' }}>
       <Button size='large' primary onClick={() => { sendPostRequest('add', 'filling database...') }}>Fill Database</Button>
-      <Button size='large' secondary onClick={() => sendPostRequest('delete', 'deleting user documents...')}
-      >Delete</Button>
+      <Button size='large' secondary onClick={() => sendPostRequest('delete', 'deleting user documents...')}>Delete</Button>
     </div>
   )
 }

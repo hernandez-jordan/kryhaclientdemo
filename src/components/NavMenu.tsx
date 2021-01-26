@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Menu } from 'semantic-ui-react';
 
-const NavMenu: React.FC<{}> = () => {
+const NavMenu: FC<{}> = () => {
   return (
     <Menu size="massive" tabular>
       <Menu.Item
